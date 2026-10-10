@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SECPlot · Processing and visualization of spectroelectrochemical data</title>
+<meta name="description" content="SECPlot is academic software, free of charge, that displays and processes spectroelectrochemical data: 3D surfaces and maps, filters, derivatives, peak detection, merging, multivariate curve resolution (MCR-ALS). Windows and Linux.">
+<link rel="alternate" hreflang="en" href="./">
+<link rel="alternate" hreflang="fr" href="fr/">
+<link rel="icon" href="../images/favicon-secplot.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/fonts.css">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="app-secplot">
+
+<header class="topbar">
+  <nav class="sitenav" aria-label="Echem-Tools">
+    <a class="brand" href="../">Echem-Tools</a>
+    <a href="../cvsim/">CVSim</a>
+    <a href="../datafit/">DataFit</a>
+    <a href="../secplot/" aria-current="page">SECPlot</a>
+  </nav>
+  <nav class="lang" aria-label="Language">
+    <span aria-current="page">English</span>
+    <a href="fr/" hreflang="fr" lang="fr">Français</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div>
+      <h1>SECPlot</h1>
+      <p class="tagline">Processing and visualization of spectroelectrochemical data</p>
+      <p class="platform">Academic software, free of charge, for Windows and Linux. No MATLAB licence required.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="mailto:echem-tools@univ-angers.fr?subject=SECPlot%20request">Request SECPlot</a>
+        <a class="btn btn-secondary" href="../docs/SECPlot_Licence.pdf">Licence of use (PDF)</a>
+      </div>
+    </div>
+    <figure class="hero-figure">
+      <img src="../images/hero-spectra.svg" width="640" height="320" alt="Spectra recorded frame after frame: one band falls while two others rise">
+      <figcaption>Illustration: spectra recorded frame after frame, one band falling while two others rise.</figcaption>
+    </figure>
+  </section>
+
+  <section class="board" aria-label="The bilinear model behind MCR-ALS">
+    <div class="board-inner">
+      <p class="equations">D = C S<sup>T</sup> + E</p>
+      <p class="lead">SECPlot loads a three-dimensional dataset &mdash; an intensity measured for every wavelength and every frame &mdash; shows it as a surface or a map, and takes it apart into the spectra and the time profiles of the species that make it.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="stack">
+      <div class="prose">
+        <h2>Seeing the whole experiment</h2>
+        <p>A spectroelectrochemical run is thousands of spectra. SECPlot shows them at once, as a 3D surface or a 2D map, with the frame axis switched to time in one click: the switch is purely visual, the data are never modified.</p>
+        <h3>Processing</h3>
+        <ul class="plain">
+          <li>algebraic operations and baseline corrections on the whole dataset</li>
+          <li>1D and 2D filters (Savitzky-Golay, Gaussian, mean, median), with the noise level measured</li>
+          <li>derivative and integration along time or frames</li>
+          <li>slices at a fixed wavelength (kinetics) or at a fixed frame (spectra), with peak detection</li>
+          <li>two acquisitions merged into a single dataset, and chopped-beam measurements rebuilt</li>
+          <li>results written as text files and to Excel</li>
+        </ul>
+      </div>
+      <figure class="fig" data-file="images/secplot-window.png">
+        <img src="../images/secplot-window.png" alt="The main window of SECPlot showing a 3D surface" loading="lazy">
+        <figcaption>The main window: a dataset of 280 frames and 1133 wavelengths shown as a 3D surface, with the processing panels on the right.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="stack">
+      <div class="prose">
+        <h2>Multivariate curve resolution (MCR-ALS)</h2>
+        <p>The dataset is written as a product: the concentration profiles C of a few components times their spectra S, plus a residual. SECPlot proposes the number of components from the singular values and says what it rests on; the count stays yours.</p>
+        <ul class="plain">
+          <li>starting profiles chosen automatically (purest variables), picked by hand or measured from presence windows</li>
+          <li>constraints on either factor: non-negativity, unimodality, presence windows, blank frames held at zero</li>
+          <li>processing along frames or along wavelengths, with the profiles reprojected when the axis is switched</li>
+          <li>the outcome named: convergence, divergence, or a solution that only reproduces the singular-value decomposition</li>
+        </ul>
+      </div>
+      <figure class="fig" data-file="images/secplot-mcr-als.png">
+        <img src="../images/secplot-mcr-als.png" alt="The MCR-ALS results window with two components" loading="lazy">
+        <figcaption>Two components resolved: the data, their reconstruction, each component and the residual as maps; spectra and time profiles on the right.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="split">
+      <div class="prose">
+        <h2>Checked</h2>
+        <p>Every version is compared with more than 900 recorded cases covering the file readers, the filters, the matrix operations and the resolution. A change that moves a result is either a correction, said as such, or a fault.</p>
+      </div>
+      <div class="prose">
+        <h2>Getting started</h2>
+        <p>A user guide in French and English explains every button and every field, and the order of work in the resolution window. No computing background is required. The interface is in English.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="obtain">
+    <div class="split">
+      <div>
+        <h2>Obtaining SECPlot</h2>
+        <div class="panel">
+          <p>SECPlot is free of charge for everyone, students and researchers alike. It is distributed as 64-bit Windows and Linux executables that need only the free <a href="https://www.mathworks.com/products/compiler/matlab-runtime.html">MATLAB Runtime</a>: no MATLAB licence is required. Its <a href="../docs/SECPlot_Licence.pdf">licence of use</a>, free of charge, allows it to be installed on as many computers as wished and passed on unchanged; it may not be modified. The demo version needs no formality: everything runs and is shown, nothing is saved. The full version is granted, free of charge too, to users registered with an academic address.</p>
+          <p class="warranty">SECPlot comes with absolutely NO WARRANTY.</p>
+          <p>To obtain SECPlot, write to the developers at <a href="mailto:echem-tools@univ-angers.fr?subject=SECPlot%20request">echem-tools@univ-angers.fr</a>.</p>
+        </div>
+      </div>
+      <div>
+        <h2>Acknowledging SECPlot</h2>
+        <div class="panel">
+          <p>If SECPlot contributes to a publication, a thesis or a funded project (ANR, ERC, a European programme…), the authors would be grateful for a mention, for instance in the acknowledgements:</p>
+          <blockquote class="cite" id="cite-text">The data were processed with SECPlot (O. Alévêque and E. Levillain, MOLTECH Anjou, UMR 6200 CNRS, University of Angers), software free of charge, available on request from echem-tools@univ-angers.fr.</blockquote>
+          <button class="copy" type="button" data-target="cite-text" data-done="Copied">Copy the sentence</button><span class="copy-status" role="status" aria-live="polite"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <p class="note">What the programs send, and what they never send: <a href="../#data">Data</a>, on the home page.</p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <p>Olivier Alévêque and Eric Levillain, <a href="https://moltech-anjou.univ-angers.fr/en/research/team-voltedge.html">VoltEdge team</a>, MOLTECH Anjou, UMR 6200 CNRS, University of Angers</p>
+    <p><a href="mailto:echem-tools@univ-angers.fr">echem-tools@univ-angers.fr</a></p>
+    <p class="note">This site is maintained by the authors. It is not an official site of the CNRS or of the University of Angers.</p>
+    <p class="note">Legal notice. Publishers: Olivier Alévêque and Eric Levillain (echem-tools@univ-angers.fr). Host: GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA.</p>
+  </div>
+</footer>
+
+<script src="../assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DataFit · Ajustement de données expérimentales par des modèles physiques</title>
+<meta name="description" content="DataFit est un logiciel académique gratuit qui ajuste environ quatre-vingt-dix modèles physiques à des données expérimentales : électrochimie, adsorption, titrages, auto-assemblage, dispositifs organiques, décomposition de bandes. Windows et Linux.">
+<link rel="alternate" hreflang="fr" href="./">
+<link rel="alternate" hreflang="en" href="../">
+<link rel="icon" href="../../images/favicon-datafit.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../assets/fonts.css">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body class="app-datafit">
+
+<header class="topbar">
+  <nav class="sitenav" aria-label="Echem-Tools">
+    <a class="brand" href="../../fr/">Echem-Tools</a>
+    <a href="../../cvsim/fr/">CVSim</a>
+    <a href="../../datafit/fr/" aria-current="page">DataFit</a>
+    <a href="../../secplot/fr/">SECPlot</a>
+  </nav>
+  <nav class="lang" aria-label="Langue">
+    <a href="../" hreflang="en" lang="en">English</a>
+    <span aria-current="page">Français</span>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div>
+      <h1>DataFit</h1>
+      <p class="tagline">Ajustement de données expérimentales par des modèles physiques</p>
+      <p class="platform">Logiciel académique gratuit, pour Windows et Linux. Aucune licence MATLAB n’est nécessaire.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="mailto:echem-tools@univ-angers.fr?subject=Demande%20DataFit">Demander DataFit</a>
+        <a class="btn btn-secondary" href="../../docs/DataFit_Licence.pdf">Licence d’utilisation (PDF)</a>
+      </div>
+    </div>
+    <figure class="hero-figure">
+      <img src="../../images/hero-fit.svg" width="640" height="320" alt="Points mesurés, modèle ajusté et ligne de base">
+      <figcaption>Illustration : une montée en exponentielle étirée ajustée sur des points bruités, avec sa ligne de base.</figcaption>
+    </figure>
+  </section>
+
+  <section class="board" aria-label="La quantité qu’un ajustement minimise">
+    <div class="board-inner">
+      <p class="equations">χ<sup>2</sup> = Σ [(y<sub>i</sub> − f(x<sub>i</sub>; p)) / σ<sub>i</sub>]<sup>2</sup></p>
+      <p class="lead">DataFit ajuste un modèle physique à des données mesurées et dit jusqu’où chaque valeur ajustée est fiable. Environ quatre-vingt-dix modèles, de l’équation de Nernst aux titrages hôte-invité, sont prêts à l’emploi ; chacun nomme ses paramètres, ses unités et les constantes dont il a besoin.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="stack">
+      <div class="prose">
+        <h2>Un ajustement, et ce qu’il vaut</h2>
+        <p>Une courbe qui passe par les points n’est pas encore un résultat. DataFit donne, pour chaque paramètre, sa valeur et son écart-type, et pour l’ajustement entier le R², le chi-carré réduit et le facteur de Student employé pour les intervalles.</p>
+        <h3>En pratique</h3>
+        <ul class="plain">
+          <li>algorithme de Levenberg-Marquardt, avec bornes ; tout paramètre peut être tenu constant</li>
+          <li>valeurs de départ mesurées sur les données quand le modèle le permet, et contrôle du point de départ avant l’ajustement</li>
+          <li>un paramètre arrêté contre une borne est signalé comme tel, et son incertitude n’est pas donnée comme s’il était libre</li>
+          <li>résidus tracés sous les données ; des points peuvent être coupés ou supprimés, et la fenêtre d’ajustement se règle par deux curseurs</li>
+          <li>pondération facultative par une colonne d’écarts-types</li>
+        </ul>
+      </div>
+      <figure class="fig" data-file="images/datafit-window.png">
+        <img src="../../images/datafit-window.png" alt="La fenêtre principale de DataFit après un ajustement" loading="lazy">
+        <figcaption>La fenêtre principale après un ajustement : microbalance à quartz, modèle d’adsorption en exponentielle étirée. Données, modèle et ligne de base à gauche, résidus en dessous ; paramètres, bornes et écarts-types à droite.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="modeles">
+    <h2 id="modeles">Les modèles</h2>
+    <div class="columns">
+      <div>
+        <h3>Électrochimie et surfaces</h3>
+        <ul class="plain">
+          <li>réponses nernstiennes, voltampérométrie alternative, composantes d’impédance</li>
+          <li>isothermes d’adsorption de Langmuir et de Frumkin</li>
+          <li>distributions bêta cumulées, pour la dispersion des potentiels formels</li>
+          <li>microbalance à quartz : adsorption et injection</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Chimie en solution</h3>
+        <ul class="plain">
+          <li>complexation hôte-invité : courbes de Job, stœchiométries H<sub>m</sub>G<sub>n</sub> suivies sur l’hôte ou l’invité, constantes successives, titrages RMN</li>
+          <li>π-stacking : nucléation-élongation en concentration ou en température, dimère, n-mère</li>
+          <li>régressions linéaires et exponentielles</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Spectres et dispositifs</h3>
+        <ul class="plain">
+          <li>décomposition de bandes sur ligne de base polynomiale : gaussienne, lorentzienne, log-normale, Voigt, dérivées pour la RPE, formes voltampérométriques et SEC, pour l’XPS, la RPE et la spectroélectrochimie</li>
+          <li>cellules photovoltaïques organiques (courbes J-V dans le noir et sous éclairement), transistors à effet de champ</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="prose">
+      <h2>Outils associés</h2>
+      <ul class="plain">
+        <li><strong>Voltammogrammes</strong> : fichiers Metrohm Autolab, CH Instruments et CVSim lus directement ; un outil CV qui superpose, corrige la chute ohmique, convolue et déconvolue, et trouve les pics.</li>
+        <li><strong>Diffusion</strong> : fenêtres DOSY pour espèces sphériques et cylindriques, qui donnent le rayon hydrodynamique.</li>
+        <li><strong>Données venues d’ailleurs</strong> : colonnes de nombres collées, un digitaliseur qui relève une courbe sur une figure publiée, des imports pour l’impédance et pour les courbes photovoltaïques noir/lumière, une table élémentaire XPS.</li>
+        <li><strong>Résultats</strong> : l’ajustement, ses paramètres et ses données écrits en texte et dans un classeur Excel.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="split">
+      <div class="prose">
+        <h2>Contrôlé</h2>
+        <p>Chaque version est comparée à près de 1 900 cas enregistrés, qui couvrent les modèles, les lecteurs de fichiers et la statistique de l’ajustement. Un changement qui déplace un résultat est soit une correction, dite comme telle, soit un défaut.</p>
+      </div>
+      <div class="prose">
+        <h2>Pour commencer</h2>
+        <p>Un mode d’emploi en français et en anglais décrit chaque fenêtre, chaque commande, et ce que chaque modèle attend. L’interface est en anglais. Au choix d’un modèle, DataFit écrit une phrase sur ses paramètres délicats : celui qui doit rester positif, celui qu’il vaut mieux borner, celui dont la valeur de départ décide de l’ajustement.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="obtenir">
+    <div class="split">
+      <div>
+        <h2>Obtenir DataFit</h2>
+        <div class="panel">
+          <p>DataFit est gratuit pour tous, étudiants comme chercheurs. Il est distribué en exécutables Windows et Linux 64 bits qui ne demandent que le <a href="https://fr.mathworks.com/products/compiler/matlab-runtime.html">MATLAB Runtime</a>, gratuit : aucune licence MATLAB n’est nécessaire. Sa <a href="../../docs/DataFit_Licence.pdf">licence d’utilisation</a>, gratuite, permet de l’installer sur autant de postes qu’on le souhaite et de le transmettre tel quel ; il ne peut pas être modifié. La version de démonstration ne demande aucune formalité : tout se fait et s’affiche, rien ne s’enregistre. La version complète est accordée, gratuitement elle aussi, aux utilisateurs inscrits avec une adresse académique.</p>
+          <p class="warranty">DataFit est fourni SANS AUCUNE GARANTIE.</p>
+          <p>Pour obtenir DataFit, écrivez aux développeurs à <a href="mailto:echem-tools@univ-angers.fr?subject=Demande%20DataFit">echem-tools@univ-angers.fr</a>.</p>
+        </div>
+      </div>
+      <div>
+        <h2>Citer DataFit</h2>
+        <div class="panel">
+          <p>Si DataFit contribue à une publication, à une thèse ou à un projet financé (ANR, ERC, programme européen…), les auteurs vous seraient reconnaissants de le mentionner, par exemple dans les remerciements :</p>
+          <blockquote class="cite" id="cite-text">Les ajustements ont été réalisés avec DataFit (O. Alévêque et E. Levillain, MOLTECH Anjou, UMR 6200 CNRS, Université d’Angers), logiciel gratuit disponible sur demande à echem-tools@univ-angers.fr.</blockquote>
+          <button class="copy" type="button" data-target="cite-text" data-done="Copiée">Copier la phrase</button><span class="copy-status" role="status" aria-live="polite"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <p class="note">Ce que les logiciels envoient, et ce qu’ils n’envoient jamais : <a href="../../fr/#donnees">Données</a>, sur la page d’accueil.</p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <p>Olivier Alévêque et Eric Levillain, <a href="https://moltech-anjou.univ-angers.fr/fr/recherche/equipe-voltedge.html">équipe VoltEdge</a>, MOLTECH Anjou, UMR 6200 CNRS, Université d’Angers</p>
+    <p><a href="mailto:echem-tools@univ-angers.fr">echem-tools@univ-angers.fr</a></p>
+    <p class="note">Ce site est tenu par les auteurs. Ce n’est pas un site officiel du CNRS ni de l’Université d’Angers.</p>
+    <p class="note">Mentions légales. Éditeurs : Olivier Alévêque et Eric Levillain (echem-tools@univ-angers.fr). Hébergeur : GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA.</p>
+  </div>
+</footer>
+
+<script src="../../assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DataFit · Fitting experimental data with physical models</title>
+<meta name="description" content="DataFit is academic software, free of charge, that fits about ninety physical models to experimental data: electrochemistry, adsorption, titrations, self-assembly, organic devices, band decomposition. Windows and Linux.">
+<link rel="alternate" hreflang="en" href="./">
+<link rel="alternate" hreflang="fr" href="fr/">
+<link rel="icon" href="../images/favicon-datafit.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/fonts.css">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="app-datafit">
+
+<header class="topbar">
+  <nav class="sitenav" aria-label="Echem-Tools">
+    <a class="brand" href="../">Echem-Tools</a>
+    <a href="../cvsim/">CVSim</a>
+    <a href="../datafit/" aria-current="page">DataFit</a>
+    <a href="../secplot/">SECPlot</a>
+  </nav>
+  <nav class="lang" aria-label="Language">
+    <span aria-current="page">English</span>
+    <a href="fr/" hreflang="fr" lang="fr">Français</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div>
+      <h1>DataFit</h1>
+      <p class="tagline">Fitting experimental data with physical models</p>
+      <p class="platform">Academic software, free of charge, for Windows and Linux. No MATLAB licence required.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="mailto:echem-tools@univ-angers.fr?subject=DataFit%20request">Request DataFit</a>
+        <a class="btn btn-secondary" href="../docs/DataFit_Licence.pdf">Licence of use (PDF)</a>
+      </div>
+    </div>
+    <figure class="hero-figure">
+      <img src="../images/hero-fit.svg" width="640" height="320" alt="Measured points, the fitted model and its baseline">
+      <figcaption>Illustration: a stretched-exponential rise fitted on noisy points, with its baseline.</figcaption>
+    </figure>
+  </section>
+
+  <section class="board" aria-label="The quantity a fit minimises">
+    <div class="board-inner">
+      <p class="equations">χ<sup>2</sup> = Σ [(y<sub>i</sub> − f(x<sub>i</sub>; p)) / σ<sub>i</sub>]<sup>2</sup></p>
+      <p class="lead">DataFit fits a physical model to measured data and says how far each fitted value can be trusted. About ninety models, from the Nernst equation to host-guest titrations, are ready to use; each one names its parameters, its units and the constants it needs.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="stack">
+      <div class="prose">
+        <h2>A fit, and what it is worth</h2>
+        <p>A curve that goes through the points is not yet a result. DataFit gives, for every parameter, its value and its standard error, and for the whole fit R², the reduced chi-square and the Student factor used for the intervals.</p>
+        <h3>In practice</h3>
+        <ul class="plain">
+          <li>Levenberg-Marquardt algorithm, with bounds; any parameter can be held constant</li>
+          <li>starting values measured on the data when the model allows it, and a check of the starting point before the fit</li>
+          <li>a parameter stopped against a bound is shown as such, and its uncertainty is not reported as if it were free</li>
+          <li>residuals plotted under the data; points can be cut or deleted, and the fitting window set with two sliders</li>
+          <li>optional weighting by a standard-deviation column</li>
+        </ul>
+      </div>
+      <figure class="fig" data-file="images/datafit-window.png">
+        <img src="../images/datafit-window.png" alt="The main window of DataFit after a fit" loading="lazy">
+        <figcaption>The main window after a fit: quartz-crystal microbalance, stretched-exponential adsorption model. Data, model and baseline on the left, residuals below; parameters, bounds and standard errors on the right.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="models">
+    <h2 id="models">The models</h2>
+    <div class="columns">
+      <div>
+        <h3>Electrochemistry and surfaces</h3>
+        <ul class="plain">
+          <li>Nernstian responses, ac voltammetry, impedance components</li>
+          <li>Langmuir and Frumkin adsorption isotherms</li>
+          <li>cumulative beta distributions, for the dispersion of formal potentials</li>
+          <li>quartz-crystal microbalance: adsorption and injection</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Chemistry in solution</h3>
+        <ul class="plain">
+          <li>host-guest binding: Job plots, H<sub>m</sub>G<sub>n</sub> stoichiometries followed on the host or the guest, stepwise constants, NMR titrations</li>
+          <li>π-stacking: nucleation-elongation against concentration or temperature, dimer, n-mer</li>
+          <li>linear and exponential regressions</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Spectra and devices</h3>
+        <ul class="plain">
+          <li>band decomposition on a polynomial baseline: Gaussian, Lorentzian, log-normal, Voigt, ESR derivatives, voltammetric and SEC shapes, for XPS, ESR and spectroelectrochemistry</li>
+          <li>organic photovoltaic cells (dark and light J-V curves), field-effect transistors</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="prose">
+      <h2>Companion tools</h2>
+      <ul class="plain">
+        <li><strong>Voltammograms</strong>: files from Metrohm Autolab, CH Instruments and CVSim read directly; a CV tool that overlays, corrects for ohmic drop, convolutes and deconvolutes, and finds the peaks.</li>
+        <li><strong>Diffusion</strong>: DOSY windows for spherical and cylindrical species, giving the hydrodynamic radius.</li>
+        <li><strong>Data from elsewhere</strong>: pasting columns of numbers, a digitizer that reads a curve from a published figure, importers for impedance and for dark/light photovoltaic curves, an XPS elemental table.</li>
+        <li><strong>Results</strong>: the fit, its parameters and its data written as text and to an Excel workbook.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="split">
+      <div class="prose">
+        <h2>Checked</h2>
+        <p>Every version is compared with nearly 1,900 recorded cases covering the models, the file readers and the statistics of the fit. A change that moves a result is either a correction, said as such, or a fault.</p>
+      </div>
+      <div class="prose">
+        <h2>Getting started</h2>
+        <p>A user guide in French and English describes every window and every control, and what each model expects. The interface is in English. When a model is chosen, DataFit writes a sentence on its delicate parameters: the one that must stay positive, the one better bounded, the one whose starting value decides the fit.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="obtain">
+    <div class="split">
+      <div>
+        <h2>Obtaining DataFit</h2>
+        <div class="panel">
+          <p>DataFit is free of charge for everyone, students and researchers alike. It is distributed as 64-bit Windows and Linux executables that need only the free <a href="https://www.mathworks.com/products/compiler/matlab-runtime.html">MATLAB Runtime</a>: no MATLAB licence is required. Its <a href="../docs/DataFit_Licence.pdf">licence of use</a>, free of charge, allows it to be installed on as many computers as wished and passed on unchanged; it may not be modified. The demo version needs no formality: everything runs and is shown, nothing is saved. The full version is granted, free of charge too, to users registered with an academic address.</p>
+          <p class="warranty">DataFit comes with absolutely NO WARRANTY.</p>
+          <p>To obtain DataFit, write to the developers at <a href="mailto:echem-tools@univ-angers.fr?subject=DataFit%20request">echem-tools@univ-angers.fr</a>.</p>
+        </div>
+      </div>
+      <div>
+        <h2>Acknowledging DataFit</h2>
+        <div class="panel">
+          <p>If DataFit contributes to a publication, a thesis or a funded project (ANR, ERC, a European programme…), the authors would be grateful for a mention, for instance in the acknowledgements:</p>
+          <blockquote class="cite" id="cite-text">The fits were carried out with DataFit (O. Alévêque and E. Levillain, MOLTECH Anjou, UMR 6200 CNRS, University of Angers), software free of charge, available on request from echem-tools@univ-angers.fr.</blockquote>
+          <button class="copy" type="button" data-target="cite-text" data-done="Copied">Copy the sentence</button><span class="copy-status" role="status" aria-live="polite"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <p class="note">What the programs send, and what they never send: <a href="../#data">Data</a>, on the home page.</p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <p>Olivier Alévêque and Eric Levillain, <a href="https://moltech-anjou.univ-angers.fr/en/research/team-voltedge.html">VoltEdge team</a>, MOLTECH Anjou, UMR 6200 CNRS, University of Angers</p>
+    <p><a href="mailto:echem-tools@univ-angers.fr">echem-tools@univ-angers.fr</a></p>
+    <p class="note">This site is maintained by the authors. It is not an official site of the CNRS or of the University of Angers.</p>
+    <p class="note">Legal notice. Publishers: Olivier Alévêque and Eric Levillain (echem-tools@univ-angers.fr). Host: GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA.</p>
+  </div>
+</footer>
+
+<script src="../assets/site.js"></script>
+</body>
+</html>
